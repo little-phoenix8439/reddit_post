@@ -1,26 +1,72 @@
-# Reddit Post Classification using NLP
+# Reddit NSFW Classification using NLP & Machine Learning
 
-## Problem Statement
-Built a machine learning model to classify Reddit posts using NLP techniques.
+## Project Overview
+This project builds a Machine Learning model to classify Reddit posts as **NSFW (Not Safe For Work)** or **Safe** using Natural Language Processing (NLP).
+
+The system analyzes post titles and predicts whether the content is adult or appropriate, helping automate **content moderation**.
+
+---
 
 ## Dataset
-Posts collected from r/dataisbeautiful subreddit.
+- Source: Reddit posts dataset (`r_dataisbeautiful_posts.csv`)
+- Size: ~193,000 posts
+- Key Features:
+  - `title` → Text data (main feature)
+  - `score` → Post engagement
+  - `num_comments`
+  - `over_18` → Target variable (NSFW label)
 
-## Approach
-- Text preprocessing and cleaning
-- TF-IDF feature extraction
-- Random Forest classifier
+---
+
+## Problem Statement
+With large-scale user-generated content, manual moderation is inefficient.
+
+ Goal: Build an automated system to detect NSFW content using Machine Learning.
+
+---
+
+## ⚙️ Tech Stack
+- Python
+- Pandas, NumPy
+- NLTK, spaCy
+- Scikit-learn
+- Matplotlib, Seaborn
+- PandasQL
+
+---
+
+## Workflow
+
+### 1. Data Exploration
+- Loaded and analyzed dataset (~193K rows)
+- Checked missing values and distributions
+
+### 2. Data Preprocessing
+- Text cleaning (lowercasing, removing special characters)
+- Stopword removal (NLTK)
+- Tokenization
+
+### 3. Feature Engineering
+- Converted text into numerical vectors using **TF-IDF**
+
+### 4. Model Training
+- Decision Tree Classifier
+- Random Forest Classifier (Best performing)
+
+### 5. Evaluation Metrics
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+
+---
 
 ## Results
-Achieved strong performance using evaluation metrics like accuracy and F1-score.
+- Achieved high performance with Random Forest
+- Balanced precision and recall for classification
 
-## Tech Stack
-Python, Scikit-learn, Pandas, NumPy, Matplotlib
-
-## Project Structure
-- data/ → dataset  
-- notebooks/ → main implementation   
-
-## How to Run
-1. Install dependencies from requirements.txt  
-2. Run the notebook  
+```text
+Accuracy: ~91%
+Precision: 0.91
+Recall: 0.89
+F1 Score: 0.90
